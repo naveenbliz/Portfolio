@@ -1,246 +1,355 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-<meta charset="UTF-8">
-<title>My Portfolio</title>
-<meta name="viewport" content="width=device-width, initial-scale=1">
 
-<!-- FAVICON -->
-<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,
+<head>
+    <meta charset="UTF-8">
+    <title>My Portfolio</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- FAVICON -->
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,
 %3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E
 %3Crect width='100' height='100' rx='20' fill='%2300f2ff'/%3E
 %3Ctext x='50' y='65' font-size='50' text-anchor='middle'%3E🤓%3C/text%3E
 %3C/svg%3E">
 
-<!-- BOOTSTRAP -->
-<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- BOOTSTRAP -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
 
-<!-- ICONS -->
-<link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css" rel="stylesheet">
+    <!-- ICONS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css" rel="stylesheet">
 
-<!-- FONT -->
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <!-- FONT -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
 
-<style>
-*{font-family:Poppins,sans-serif}
+    <style>
+        * {
+            font-family: Poppins, sans-serif
+        }
 
-body{
-background:linear-gradient(120deg,#0f0c29,#302b63,#24243e);
-color:white;
-padding-top:70px;
-}
+        body {
+            background-image: linear-gradient(to left top, #ffd8ee, #f7d1ed, #eecbec, #e4c5eb, #d9bfeb, #c7c2f4, #b2c6f9, #9acafb, #7cd6f6, #76dee3, #8de2c9, #b1e3af);
+            color: white;
+            padding-top: 70px;
+        }
 
-/* NAVBAR */
-.navbar{background:rgba(0,0,0,.6);backdrop-filter:blur(10px)}
-.navbar-brand{color:#00f2ff!important;font-weight:600}
-.nav-link{color:white!important;margin-left:15px;position:relative}
-.nav-link i{color:#00f2ff;margin-right:6px}
-.nav-link::after{
-content:'';width:0;height:2px;background:#00f2ff;
-position:absolute;left:0;bottom:0;transition:.3s
-}
-.nav-link:hover::after{width:100%}
+        /* NAVBAR */
+        .navbar {
+            background: rgba(0, 0, 0, .6);
+            backdrop-filter: blur(10px)
+        }
 
-/* HERO */
-.hero{min-height:100vh;display:flex;align-items:center}
+        .navbar-brand {
+            color: #00f2ff !important;
+            font-weight: 600
+        }
 
-/* IMAGE ANIMATION */
-.hero img{
-width:300px;
-border-radius:50%;
-box-shadow:0 0 30px #00f2ff;
-animation:orbit 6s ease-in-out infinite, glowPulse 3s infinite;
-transition:.4s;
-}
-.hero img:hover{
-transform:scale(1.08) rotate(3deg);
-}
+        .nav-link {
+            color: white !important;
+            margin-left: 15px;
+            position: relative
+        }
 
-@keyframes orbit{
-0%{transform:translate(0,0)}
-25%{transform:translate(10px,-15px)}
-50%{transform:translate(0,-25px)}
-75%{transform:translate(-10px,-15px)}
-100%{transform:translate(0,0)}
-}
+        .nav-link i {
+            color: #00f2ff;
+            margin-right: 6px
+        }
 
-@keyframes glowPulse{
-50%{box-shadow:0 0 45px #7a00ff}
-}
+        .nav-link::after {
+            content: '';
+            width: 0;
+            height: 2px;
+            background: #00f2ff;
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            transition: .3s
+        }
 
-/* TYPING NAME */
-.typing-name{
-display:inline-block;
-color:#00f2ff;
-font-weight:600;
-overflow:hidden;
-white-space:nowrap;
-border-right:3px solid #00f2ff;
-width:0;
-animation:typing 3s steps(9,end) infinite,blink .8s infinite;
-}
+        .nav-link:hover::after {
+            width: 100%
+        }
 
-@keyframes typing{
-0%{width:0}
-50%{width:9ch}
-100%{width:0}
-}
-@keyframes blink{50%{border-color:transparent}}
+        /* HERO */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center
+        }
 
-/* SECTIONS */
-section{padding:90px 0}
-.section-title{text-align:center;margin-bottom:50px}
-.section-title::after{
-content:'';width:80px;height:4px;
-background:#00f2ff;display:block;margin:15px auto
-}
+        /* IMAGE ANIMATION */
+        .hero img {
+            width: 300px;
+            border-radius: 50%;
+            box-shadow: 0 0 30px #00f2ff;
+            animation: orbit 6s ease-in-out infinite, glowPulse 3s infinite;
+            transition: .4s;
+        }
 
-/* CARDS */
-.card{
-background:rgba(255,255,255,.08);
-border:none;color:white;border-radius:15px;
-transition:.4s
-}
-.card:hover{
-transform:translateY(-10px) scale(1.05);
-box-shadow:0 0 25px #00f2ff
-}
+        .hero img:hover {
+            transform: scale(1.08) rotate(3deg);
+        }
 
-/* BUTTON */
-.btn-glow{
-background:linear-gradient(45deg,#00f2ff,#7a00ff);
-color:white;border:none;
-box-shadow:0 0 20px #00f2ff
-}
-.btn-glow:hover{box-shadow:0 0 40px #7a00ff}
+        @keyframes orbit {
+            0% {
+                transform: translate(0, 0)
+            }
 
-/* CONTACT SECTION BEAUTY */
-.contact-box{
-background:rgba(255,255,255,.12);
-backdrop-filter:blur(15px);
-padding:40px;
-border-radius:25px;
-box-shadow:0 0 40px rgba(0,242,255,.4);
-position:relative;
-}
-.contact-box::before{
-content:'';
-position:absolute;
-inset:-2px;
-border-radius:25px;
-background:linear-gradient(45deg,#597273,#b2a7be);
-z-index:-1;
-filter:blur(20px);
-}
+            25% {
+                transform: translate(10px, -15px)
+            }
 
-/* INPUTS */
-.abstract-input{
-background:rgba(255,255,255,.2);
-border:none;color:white;
-padding:18px 25px;
-border-radius:50px;
-box-shadow:0 0 20px rgba(0,242,255,.4);
-transition:.3s
-}
-.abstract-input:focus{
-outline:none;
-transform:scale(1.05);
-box-shadow:0 0 35px #00f2ff
-}
-.abstract-input::placeholder{color:#ddd}
+            50% {
+                transform: translate(0, -25px)
+            }
 
-/* FOOTER */
-footer{text-align:center;padding:15px;background:black}
-</style>
+            75% {
+                transform: translate(-10px, -15px)
+            }
+
+            100% {
+                transform: translate(0, 0)
+            }
+        }
+
+        @keyframes glowPulse {
+            50% {
+                box-shadow: 0 0 45px #b888eb
+            }
+        }
+
+        /* TYPING NAME */
+        .typing-name {
+            display: flex; 
+            color: #846bf3;
+            font-weight: 500;
+            overflow: hidden;
+            white-space: auto;
+            border-right: 3px solid #645dce;
+            width: 0;
+            animation: typing 3s steps(10, end) infinite, blink .8s infinite;
+        }
+
+        @keyframes typing {
+            0% {
+                width: 0
+            }
+
+            50% {
+                width: 9ch
+            }
+
+            100% {
+                width: 0
+            }
+        }
+
+        @keyframes blink {
+            50% {
+                border-color: transparent
+            }
+        }
+
+        /* SECTIONS */
+        section {
+            padding: 90px 0
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 50px
+        }
+
+        .section-title::after {
+            content: '';
+            width: 80px;
+            height: 4px;
+            background: #00f2ff;
+            display: block;
+            margin: 15px auto
+        }
+
+        /* CARDS */
+        .card {
+            background: rgba(255, 255, 255, .08);
+            border: none;
+            color: white;
+            border-radius: 15px;
+            transition: .4s
+        }
+
+        .card:hover {
+            transform: translateY(-10px) scale(1.05);
+            box-shadow: 0 0 25px #00f2ff
+        }
+
+        /* BUTTON */
+        .btn-glow {
+            background: linear-gradient(45deg, #00f2ff, #7a00ff);
+            color: white;
+            border: none;
+            box-shadow: 0 0 20px #00f2ff
+        }
+
+        .btn-glow:hover {
+            box-shadow: 0 0 40px #7a00ff
+        }
+
+        /* CONTACT SECTION BEAUTY */
+        .contact-box {
+            background: rgba(255, 255, 255, .12);
+            backdrop-filter: blur(15px);
+            padding: 40px;
+            border-radius: 25px;
+            box-shadow: 0 0 40px rgba(0, 242, 255, .4);
+            position: relative;
+        }
+
+        .contact-box::before {
+            content: '';
+            position: absolute;
+            inset: -2px;
+            border-radius: 25px;
+            background: linear-gradient(45deg, #597273, #b2a7be);
+            z-index: -1;
+            filter: blur(20px);
+        }
+
+        /* INPUTS */
+        .abstract-input {
+            background: rgba(255, 255, 255, .2);
+            border: none;
+            color: white;
+            padding: 18px 25px;
+            border-radius: 50px;
+            box-shadow: 0 0 20px rgba(0, 242, 255, .4);
+            transition: .3s
+        }
+
+        .abstract-input:focus {
+            outline: none;
+            transform: scale(1.05);
+            box-shadow: 0 0 35px #00f2ff
+        }
+
+        .abstract-input::placeholder {
+            color: #ddd
+        }
+
+        /* FOOTER */
+        footer {
+            text-align: center;
+            padding: 15px;
+            background: black
+        }
+    </style>
 </head>
 
 <body>
 
-<!-- NAVBAR -->
-<nav class="navbar navbar-expand-lg fixed-top">
-<div class="container">
-<a class="navbar-brand" href="#"><i class="bi bi-code-slash"></i> MyPortfolio</a>
-<button class="navbar-toggler bg-light" data-bs-toggle="collapse" data-bs-target="#nav">☰</button>
-<div class="collapse navbar-collapse" id="nav">
-<ul class="navbar-nav ms-auto">
-<li class="nav-item"><a class="nav-link" href="#home"><i class="bi bi-house"></i>Home</a></li>
-<li class="nav-item"><a class="nav-link" href="#about"><i class="bi bi-person"></i>About</a></li>
-<li class="nav-item"><a class="nav-link" href="#skills"><i class="bi bi-lightning"></i>Skills</a></li>
-<li class="nav-item"><a class="nav-link" href="#projects"><i class="bi bi-kanban"></i>Projects</a></li>
-<li class="nav-item"><a class="nav-link" href="#contact"><i class="bi bi-envelope"></i>Contact</a></li>
-</ul>
-</div>
-</div>
-</nav>
+    <!-- NAVBAR -->
+    <nav class="navbar navbar-expand-lg fixed-top">
+        <div class="container">
+            <a class="navbar-brand" href="#"><i class="bi bi-code-slash"></i> MyPortfolio</a>
+            <button class="navbar-toggler bg-light" data-bs-toggle="collapse" data-bs-target="#nav">☰</button>
+            <div class="collapse navbar-collapse" id="nav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link" href="#home"><i class="bi bi-house"></i>Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#about"><i class="bi bi-person"></i>About</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#skills"><i class="bi bi-lightning"></i>Skills</a>
+                    </li>
+                    <li class="nav-item"><a class="nav-link" href="#projects"><i class="bi bi-kanban"></i>Projects</a>
+                    </li>
+                    <li class="nav-item"><a class="nav-link" href="#contact"><i class="bi bi-envelope"></i>Contact</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
 
-<!-- HERO -->
-<section id="home" class="hero">
-<div class="container">
-<div class="row align-items-center">
-<div class="col-md-6">
-<h1><span class="typing-name">Hello,I'm M V Naveen</span></h1>
-<p class="lead">Web Developer • Designer • Geek</p>
-<a href="#projects" class="btn btn-glow mt-3">View Projects</a>
-</div>
-<div class="col-md-6 text-center">
-<img src="IMG_0134_Original.jpeg" alt="Profile">
-</div>
-</div>
-</div>
-</section>
+    <!-- HERO -->
+    <section id="home" class="hero">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-md-6">
+                    <h1>Hello,I'm <span class="typing-name">M V Naveen</span></h1>
+                    <p class="lead">Web Developer • Designer • Geek</p>
+                    <a href="#projects" class="btn btn-glow mt-3">View Projects</a>
+                </div>
+                <div class="col-md-6 text-center">
+                    <img src="IMG_0134_Original.jpeg" alt="Profile">
+                </div>
+            </div>
+        </div>
+    </section>
 
-<!-- ABOUT -->
-<section id="about">
-<div class="container">
-<h2 class="section-title">About Me</h2>
-<p class="text-center">I build modern, animated and creative web experiences.</p>
-</div>
-</section>
+    <!-- ABOUT -->
+    <section id="about">
+        <div class="container">
+            <h2 class="section-title">About Me</h2>
+            <p class="text-center">I build modern, animated and creative web experiences.</p>
+        </div>
+    </section>
 
-<!-- SKILLS -->
-<section id="skills">
-<div class="container">
-<h2 class="section-title">Skills</h2>
-<div class="row text-center">
-<div class="col-md-3 mb-4"><div class="card p-4">HTML</div></div>
-<div class="col-md-3 mb-4"><div class="card p-4">CSS</div></div>
-<div class="col-md-3 mb-4"><div class="card p-4">Bootstrap</div></div>
-<div class="col-md-3 mb-4"><div class="card p-4">JavaScript</div></div>
-</div>
-</div>
-</section>
+    <!-- SKILLS -->
+    <section id="skills">
+        <div class="container">
+            <h2 class="section-title">Skills</h2>
+            <div class="row text-center">
+                <div class="col-md-3 mb-4">
+                    <div class="card p-4">HTML</div>
+                </div>
+                <div class="col-md-3 mb-4">
+                    <div class="card p-4">CSS</div>
+                </div>
+                <div class="col-md-3 mb-4">
+                    <div class="card p-4">Bootstrap</div>
+                </div>
+                <div class="col-md-3 mb-4">
+                    <div class="card p-4">JavaScript</div>
+                </div>
+            </div>
+        </div>
+    </section>
 
-<!-- PROJECTS -->
- <section id="projects">
-<div class="container">
-<h2 class="section-title">Projects</h2>
-<div class="row">
-    <div class="col-md-4 mb-4"><div class="card p-4">Malaria Cell Detection</div></div>
-    <div class="col-md-4 mb-4"><div class="card p-4">Logistics Management</div></div>
-    <div class="col-md-4 mb-4"><div class="card p-4">Sree Dhatri Holidays and Resorts</div></div>
-</div>
-</div>
-</section>
+    <!-- PROJECTS -->
+    <section id="projects">
+        <div class="container">
+            <h2 class="section-title">Projects</h2>
+            <div class="row">
+                <div class="col-md-4 mb-4">
+                    <div class="card p-4">Malaria Cell Detection</div>
+                </div>
+                <div class="col-md-4 mb-4">
+                    <div class="card p-4">Logistics Management</div>
+                </div>
+                <div class="col-md-4 mb-4">
+                    <div class="card p-4">Sree Dhatri Holidays and Resorts</div>
+                </div>
+            </div>
+        </div>
+    </section>
 
-<!-- CONTACT -->
-<section id="contact">
-<div class="container">
-<h2 class="section-title">Contact Me</h2>
-<div class="row justify-content-center">
-<div class="col-md-6">
-<div class="contact-box text-center">
-<input class="abstract-input w-100 mb-4" placeholder="Your Name">
-<input class="abstract-input w-100 mb-4" placeholder="Your Email">
-<textarea rows="4" class="abstract-input w-100 mb-4" placeholder="Your Message"></textarea>
-<button class="btn btn-glow w-100">Send Message</button>
-</div>
-</div>
-</div>
-</div>
-</section>
+    <!-- CONTACT -->
+    <section id="contact">
+        <div class="container">
+            <h2 class="section-title">Contact Me</h2>
+            <div class="row justify-content-center">
+                <div class="col-md-6">
+                    <div class="contact-box text-center">
+                        <input class="abstract-input w-100 mb-4" placeholder="Your Name">
+                        <input class="abstract-input w-100 mb-4" placeholder="Your Email">
+                        <textarea rows="4" class="abstract-input w-100 mb-4" placeholder="Your Message"></textarea>
+                        <button class="btn btn-glow w-100">Send Message</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 
-<footer>© 2026 M V Naveen</footer>
+    <footer>© 2026 M V Naveen</footer>
 
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
 </body>
+
 </html>
